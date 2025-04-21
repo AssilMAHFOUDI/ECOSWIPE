@@ -8,7 +8,7 @@ import os
 pygame.init()
 pygame.mixer.init()
 # Image path
-IMAGE_FOLDER = r"C:\\Users\\Théo\\Desktop\\Ynov_M1\\hackathon_ia"
+IMAGE_FOLDER = r".//hackathon_ia//"
 # Load background music
 pygame.mixer.music.load(os.path.join(IMAGE_FOLDER, "Green_Whisper.mp3"))
 pygame.mixer.music.set_volume(0.5)
@@ -25,6 +25,7 @@ LIGHT_BLUE = (173, 216, 230)
 WHITE = (255, 255, 255)
 RED = (255, 69, 0)
 BLACK = (0, 0, 0)
+GREEN = (0,255,0)
 
 # Game settings
 FPS = 60
@@ -33,8 +34,8 @@ font = pygame.font.SysFont("Comic Sans MS", 24)
 large_font = pygame.font.SysFont("Comic Sans MS", 32, bold=True)
 
 # Sounds
-correct_sound = pygame.mixer.Sound("correct.wav")
-wrong_sound = pygame.mixer.Sound("wrong.wav")
+correct_sound = pygame.mixer.Sound(os.path.join(IMAGE_FOLDER,"correct.wav"))
+wrong_sound = pygame.mixer.Sound(os.path.join(IMAGE_FOLDER,"wrong.wav"))
 
 
 
@@ -55,9 +56,12 @@ arrow_right = pygame.transform.scale(arrow_right, (60, 60))
 
 # Load logo
 logo_img = pygame.image.load(os.path.join(IMAGE_FOLDER, "logo.png"))
-logo_img = pygame.transform.scale(logo_img, (330, 250))
+logo_img = pygame.transform.scale(logo_img, (660, 400))
 
-# Load logo
+# Load heart
+heart_img = pygame.image.load(os.path.join(IMAGE_FOLDER, "heart.png"))
+heart_img = pygame.transform.scale(heart_img, (40, 40))
+
 
 # Load garbage images
 IMAGES = {
@@ -67,6 +71,7 @@ IMAGES = {
     "restes": pygame.image.load(os.path.join(IMAGE_FOLDER, "restes.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "restes.png")) else None,
     "bouteille_de_vin": pygame.image.load(os.path.join(IMAGE_FOLDER, "bouteille_de_vin.png")),
     "pot_de_confiture": pygame.image.load(os.path.join(IMAGE_FOLDER, "pot_de_confiture.png")),
+    "carton_pizza": pygame.image.load(os.path.join(IMAGE_FOLDER, "carton_pizza.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "carton_pizza.png")) else None,
 }
 
 # Garbage items
@@ -77,6 +82,7 @@ GARBAGE = [
     {"name": "Restes de repas", "type": "organic", "image": IMAGES["restes"], "explanation": "Les restes de nourriture vont dans le compost."},
     {"name": "Bouteille de vin", "type": "glass", "image": IMAGES["bouteille_de_vin"], "explanation": "Les bouteilles en verre se recyclent dans la borne à verre."},
     {"name": "Pot de confiture", "type": "glass", "image": IMAGES["pot_de_confiture"], "explanation": "Les pots en verre vont dans le conteneur à verre."},
+    {"name": "Carton de pizza", "type": "recycle", "image": IMAGES["carton_pizza"], "explanation": "Les cartons propres vont au recyclage, sans résidus."},
 ]
 
 # Game state
@@ -112,12 +118,12 @@ def setup():
 
 def draw_start_screen():
     screen.fill((200, 255, 200))  # Light green background
-    screen.blit(logo_img, (WIDTH // 2 - 165, 40))
+    screen.blit(logo_img, (WIDTH // 2 - 330, 60))
     # No title needed below the logo
     slogan = large_font.render("Apprends à trier en t'amusant !", True, BLACK)
-    prompt = large_font.render("Clique pour commencer", True, BLACK)
-    screen.blit(slogan, (WIDTH // 2 - slogan.get_width() // 2, 400))
-    screen.blit(prompt, (WIDTH // 2 - prompt.get_width() // 2, 450))
+    prompt = large_font.render("Clique pour commencer", True, GREEN)
+    screen.blit(slogan, (WIDTH // 2 - slogan.get_width() // 2, 500))
+    screen.blit(prompt, (WIDTH // 2 - prompt.get_width() // 2, 550))
     pygame.display.flip()
 
 
@@ -138,14 +144,15 @@ def draw():
 
         img = current_garbage["image"]
         if img:
-            img = pygame.transform.scale(img, (200, 150))
+            img = pygame.transform.scale(img, (200, 200))
             screen.blit(img, (WIDTH // 2 - 100, HEIGHT // 2 - 100 + float_offset))
 
         text = font.render(current_garbage["name"], True, BLACK)
-        screen.blit(text, (WIDTH // 2 - text.get_width() // 2, HEIGHT // 2 + 60 + float_offset))
+        screen.blit(text, (WIDTH // 2 - text.get_width() // 2, HEIGHT // 2 + 100 + float_offset))
 
         for i in range(lives):
-            pygame.draw.circle(screen, RED, (30 + i * 40, 50), 15)
+            # pygame.draw.circle(screen, RED, (30 + i * 40, 50), 15)
+            screen.blit(heart_img, (20 + i * 40, 35)) 
 
         score_text = font.render(f"Score: {score}", True, BLACK)
         screen.blit(score_text, (WIDTH - 150, 20))
@@ -160,9 +167,9 @@ def draw():
 
         if message:
             msg_text = font.render(message, True, BLACK)
-            screen.blit(msg_text, (WIDTH // 2 - msg_text.get_width() // 2, 500))
+            screen.blit(msg_text, (WIDTH // 2 - msg_text.get_width() // 2, 530))
             if feedback_img:
-                screen.blit(feedback_img, (WIDTH // 2 -30, 470))
+                screen.blit(feedback_img, (WIDTH // 2 -30, 500))
 
     pygame.display.flip()
 
