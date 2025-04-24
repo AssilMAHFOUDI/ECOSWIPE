@@ -72,6 +72,26 @@ IMAGES = {
     "bouteille_de_vin": pygame.image.load(os.path.join(IMAGE_FOLDER, "bouteille_de_vin.png")),
     "pot_de_confiture": pygame.image.load(os.path.join(IMAGE_FOLDER, "pot_de_confiture.png")),
     "carton_pizza": pygame.image.load(os.path.join(IMAGE_FOLDER, "carton_pizza.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "carton_pizza.png")) else None,
+    "coquilles_oeufs": pygame.image.load(os.path.join(IMAGE_FOLDER, "coquilles_oeufs.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "coquilles_oeufs.png")) else None,
+    "bouteille_lait": pygame.image.load(os.path.join(IMAGE_FOLDER, "bouteille_lait.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "bouteille_lait.png")) else None,
+    "marc_cafe": pygame.image.load(os.path.join(IMAGE_FOLDER, "marc_cafe.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "marc_cafe.png")) else None,
+    "boite_conserve": pygame.image.load(os.path.join(IMAGE_FOLDER, "boite_conserve.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "boite_conserve.png")) else None,
+    "feuille_papier": pygame.image.load(os.path.join(IMAGE_FOLDER, "feuille_papier.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "feuille_papier.png")) else None,
+    "pelure_pomme": pygame.image.load(os.path.join(IMAGE_FOLDER, "pelure_pomme.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "pelure_pomme.png")) else None,
+    "bouteille_jus": pygame.image.load(os.path.join(IMAGE_FOLDER, "bouteille_jus.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "bouteille_jus.png")) else None,
+    "carton_lait": pygame.image.load(os.path.join(IMAGE_FOLDER, "carton_lait.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "carton_lait.png")) else None,
+    "verre_casse": pygame.image.load(os.path.join(IMAGE_FOLDER, "verre_casse.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "verre_casse.png")) else None,
+    "canette_aluminium": pygame.image.load(os.path.join(IMAGE_FOLDER, "canette_aluminium.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "canette_aluminium.png")) else None,
+    "sachet_the": pygame.image.load(os.path.join(IMAGE_FOLDER, "sachet_the.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "sachet_the.png")) else None,
+    "bouteille_biere": pygame.image.load(os.path.join(IMAGE_FOLDER, "bouteille_biere.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "bouteille_biere.png")) else None,
+    "emballage_plastique": pygame.image.load(os.path.join(IMAGE_FOLDER, "emballage_plastique.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "emballage_plastique.png")) else None,
+    "tasse_verre": pygame.image.load(os.path.join(IMAGE_FOLDER, "tasse_verre.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "tasse_verre.png")) else None,
+    "croute_pain": pygame.image.load(os.path.join(IMAGE_FOLDER, "croute_pain.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "croute_pain.png")) else None,
+    "boite_oeufs": pygame.image.load(os.path.join(IMAGE_FOLDER, "boite_oeufs.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "boite_oeufs.png")) else None,
+    "pelure_orange": pygame.image.load(os.path.join(IMAGE_FOLDER, "pelure_orange.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "pelure_orange.png")) else None,
+    "pot_yogourt": pygame.image.load(os.path.join(IMAGE_FOLDER, "pot_yogourt.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "pot_yogourt.png")) else None,
+    "feuilles_fanees": pygame.image.load(os.path.join(IMAGE_FOLDER, "feuilles_fanees.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "feuilles_fanees.png")) else None,
+    "barquette_plastique": pygame.image.load(os.path.join(IMAGE_FOLDER, "barquette_plastique.png")) if os.path.exists(os.path.join(IMAGE_FOLDER, "barquette_plastique.png")) else None,
 }
 
 # Garbage items
@@ -83,8 +103,28 @@ GARBAGE = [
     {"name": "Bouteille de vin", "type": "glass", "image": IMAGES["bouteille_de_vin"], "explanation": "Les bouteilles en verre se recyclent dans la borne à verre."},
     {"name": "Pot de confiture", "type": "glass", "image": IMAGES["pot_de_confiture"], "explanation": "Les pots en verre vont dans le conteneur à verre."},
     {"name": "Carton de pizza", "type": "recycle", "image": IMAGES["carton_pizza"], "explanation": "Les cartons propres vont au recyclage, sans résidus."},
+    {"name": "Coquilles d'oeufs", "type": "organic", "image": IMAGES["coquilles_oeufs"], "explanation": "Les coquilles d'oeufs sont compostables."},
+    {"name": "Bouteille de lait", "type": "recycle", "image": IMAGES["bouteille_lait"], "explanation": "Les bouteilles de lait en plastique vont au recyclage."},
+    {"name": "Marc de café", "type": "organic", "image": IMAGES["marc_cafe"], "explanation": "Le marc de café est idéal pour le compost."},
+    {"name": "Boîte de conserve", "type": "recycle", "image": IMAGES["boite_conserve"], "explanation": "Les boîtes métalliques vont au recyclage après rinçage."},
+    {"name": "Feuille de papier", "type": "recycle", "image": IMAGES["feuille_papier"], "explanation": "Le papier non souillé va au recyclage."},
+    {"name": "Pelure de pomme", "type": "organic", "image": IMAGES["pelure_pomme"], "explanation": "Les pelures de fruits vont au compost."},
+    {"name": "Bouteille de jus", "type": "recycle", "image": IMAGES["bouteille_jus"], "explanation": "Les bouteilles de jus en plastique vont au recyclage."},
+    {"name": "Carton de lait", "type": "recycle", "image": IMAGES["carton_lait"], "explanation": "Les briques de lait vont au recyclage."},
+    {"name": "Verre cassé", "type": "glass", "image": IMAGES["verre_casse"], "explanation": "Le verre cassé va dans le conteneur à verre."},
+    {"name": "Canette en aluminium", "type": "recycle", "image": IMAGES["canette_aluminium"], "explanation": "Les canettes métalliques vont au recyclage."},
+    {"name": "Sachet de thé", "type": "organic", "image": IMAGES["sachet_the"], "explanation": "Les sachets de thé usagés vont au compost."},
+    {"name": "Bouteille de bière", "type": "glass", "image": IMAGES["bouteille_biere"], "explanation": "Les bouteilles de bière vont dans le conteneur à verre."},
+    {"name": "Emballage plastique", "type": "recycle", "image": IMAGES["emballage_plastique"], "explanation": "Les emballages plastiques propres vont au recyclage."},
+    {"name": "Tasse en verre", "type": "glass", "image": IMAGES["tasse_verre"], "explanation": "Les tasses en verre vont dans le conteneur à verre."},
+    {"name": "Croûte de pain", "type": "organic", "image": IMAGES["croute_pain"], "explanation": "Les restes de pain vont au compost."},
+    {"name": "Boîte à oeufs", "type": "recycle", "image": IMAGES["boite_oeufs"], "explanation": "Les boîtes à oeufs en carton vont au recyclage."},
+    {"name": "Pelure d'orange", "type": "organic", "image": IMAGES["pelure_orange"], "explanation": "Les pelures d'agrumes vont au compost."},
+    {"name": "Pot de yogourt", "type": "recycle", "image": IMAGES["pot_yogourt"], "explanation": "Les pots de yogourt en plastique vont au recyclage."},
+    {"name": "Feuilles fanées", "type": "organic", "image": IMAGES["feuilles_fanees"], "explanation": "Les feuilles végétales vont au compost."},
+    {"name": "Barquette plastique", "type": "recycle", "image": IMAGES["barquette_plastique"], "explanation": "Les barquettes plastiques vont au recyclage."},
+    
 ]
-
 # Game state
 music_on = True
 lives = 3
